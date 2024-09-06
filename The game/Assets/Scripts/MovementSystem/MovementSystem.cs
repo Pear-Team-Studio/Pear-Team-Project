@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementSystem : MonoBehaviour
 {
     private bool _isLookingRight;
-    private float _speed;
+    [SerializeField] private float _speed;
 
     public bool IsLookingRight 
     { 
@@ -13,11 +13,10 @@ public class MovementSystem : MonoBehaviour
         set { } 
     }
 
-
-    public MovementSystem(float speed)
+    public float Speed
     {
-        _speed = speed;
-        _isLookingRight = true;
+        get { return _speed; }
+        set { _speed = value; }
     }
 
     public Vector2 ProcessingInputVector(Vector2 inputVector)

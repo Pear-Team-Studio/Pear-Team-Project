@@ -11,7 +11,13 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _movementSystem = new MovementSystem(7.0f);
+        _movementSystem = GetComponent<MovementSystem>();
+    }
+
+    private void Start()
+    {
+        _movementSystem.Speed = 7.0f;
+        _movementSystem.IsLookingRight = true;
     }
 
     private void Update()
