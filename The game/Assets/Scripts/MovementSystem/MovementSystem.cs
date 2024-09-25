@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class MovementSystem : MonoBehaviour
 {
-    private bool _isLookingRight;
+    private bool _isLookingRight = true;
+    private bool _isMoving = true;
     [SerializeField] private float _speed;
 
     public bool IsLookingRight 
     { 
         get { return _isLookingRight;}
-        set { } 
+    }
+
+    public bool IsMoving
+    {
+        get { return _isMoving; }
     }
 
     public float Speed
@@ -23,6 +28,7 @@ public class MovementSystem : MonoBehaviour
     { 
         if(inputVector.x>0) { _isLookingRight = true; }
         if(inputVector.x<0) { _isLookingRight = false; }
+        if (inputVector != Vector2.zero) { _isMoving = true; } else { _isMoving = false; }
         return inputVector.normalized * (_speed * Time.fixedDeltaTime);
     }
 }

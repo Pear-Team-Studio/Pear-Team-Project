@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _movementSystem.Speed = 7.0f;
-        _movementSystem.IsLookingRight = true;
     }
 
     private void Update()
