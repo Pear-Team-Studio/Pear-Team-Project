@@ -15,7 +15,7 @@ public class MovementSystem : MonoBehaviour
 
     public bool IsMoving
     {
-        get { return _isMoving; }
+        get { return _isMoving}
     }
 
     public float Speed
@@ -30,5 +30,10 @@ public class MovementSystem : MonoBehaviour
         if(inputVector.x<0) { _isLookingRight = false; }
         if (inputVector != Vector2.zero) { _isMoving = true; } else { _isMoving = false; }
         return inputVector.normalized * (_speed * Time.fixedDeltaTime);
+    }
+
+    public static Vector3 GetRandomDir()
+    {
+        return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 }
